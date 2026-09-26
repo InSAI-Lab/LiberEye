@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiberEye Coordination Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="device-panel" aria-label="mobile assistive app">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Local demonstration</p>
+            <h1>LiberEye Coordination Demo</h1>
+          </div>
+          <div class="status-pill" id="systemStatus">Synthetic scenario</div>
+        </header>
+
+        <p class="data-source" id="dataSource" aria-live="polite">Local example with scripted instructions and specialist states. The scene is illustrative; no sensor observations or participant measurements are used.</p>
+
+        <section class="scene-board" aria-label="illustrative mobility scene">
+          <div class="scene-visual" id="sceneVisual">
+            <div class="road-lane left"></div>
+            <div class="road-lane right"></div>
+            <div class="tactile-paving" id="tactilePaving"></div>
+            <div class="crosswalk"></div>
+            <div class="traffic-light" id="trafficLight">
+              <span class="red"></span>
+              <span class="yellow"></span>
+              <span class="green active"></span>
+            </div>
+            <div class="person-path">
+              <span class="step step-1"></span>
+              <span class="step step-2"></span>
+              <span class="step step-3"></span>
+            </div>
+            <div class="obstacle" id="obstacle"></div>
+            <div class="target-item" id="targetItem"></div>
+            <div class="glasses-frame" aria-hidden="true"></div>
+          </div>
+
+          <div class="instruction-card" aria-live="polite">
+            <span class="instruction-label">Demonstration guidance</span>
+            <strong id="mainInstruction">Green light 4 m ahead. Continue along the tactile paving</strong>
+            <p id="secondaryInstruction">Wrist cues D1-D4 indicate approach distance. W1-W3 indicate hazard urgency.</p>
+          </div>
+        </section>
+
+        <section class="controls" aria-label="synthetic scenario controls">
+          <button class="scenario active" data-scenario="sidewalk">Sidewalk navigation</button>
+          <button class="scenario" data-scenario="blocked">Blocked tactile paving</button>
+          <button class="scenario" data-scenario="crossing">Road crossing</button>
+          <button class="scenario" data-scenario="finding">Object search</button>
+        </section>
+
+        <section class="media-tester" aria-label="media tester">
+          <div>
+            <p class="eyebrow">Uploaded media analysis</p>
+            <h2>Analyze an image or video</h2>
+          </div>
+          <div class="media-controls">
+            <input id="mediaInput" type="file" accept="image/*,video/*" />
+            <input id="targetQuery" type="text" placeholder="Optional target object, such as a cup" />
+            <button id="analyzeMediaButton" type="button">Analyze media</button>
+          </div>
+          <div class="media-preview" id="mediaPreview" hidden>
+            <div class="media-panel">
+              <span class="media-panel-title">Original media</span>
+              <div class="media-frame">
+                <img id="mediaPreviewImage" alt="Uploaded image preview" hidden />
+                <video id="mediaPreviewVideo" controls muted playsinline hidden></video>
+              </div>
+            </div>
+            <div class="media-panel">
+              <span class="media-panel-title">Segmentation and detection</span>
+              <div class="media-frame processed-frame">
+                <img id="processedResultImage" alt="Model segmentation and detection results" hidden />
+                <canvas id="processedCanvas" hidden></canvas>
+                <div class="processed-placeholder" id="processedPlaceholder">Model results appear after analysis</div>
+              </div>
+              <div class="annotation-list" id="annotationList" aria-label="segmentation labels"></div>
+            </div>
+            <div class="media-inspector">
+              <span id="mediaFileMeta">No media selected</span>
+              <p id="mediaSceneSummary">Select an image or video to view an analysis summary.</p>
+              <div class="media-chips" id="mediaEvidenceChips" aria-label="media evidence"></div>
+            </div>
+          </div>
+          <p id="mediaStatus">Upload a street image or short video to inspect perception output and a generated guidance plan.</p>
+        </section>
+
+        <section class="multimodal-grid" aria-label="multimodal feedback">
+          <article class="feedback-unit">
+            <span class="unit-icon">👓</span>
+            <div>
+              <h2>Camera glasses</h2>
+              <p id="glassesText">Capture the scene ahead, obstacles, traffic signals and tactile paving.</p>
+            </div>
+          </article>
+          <article class="feedback-unit">
+            <span class="unit-icon">📱</span>
+            <div>
+              <h2>Phone app</h2>
+              <p id="phoneText">Relay cloud-coordinated guidance to speech and wrist feedback.</p>
+            </div>
+          </article>
+          <article class="feedback-unit vibrating">
+            <span class="unit-icon">⌚</span>
+            <div>
+              <h2>Haptic wristband</h2>
+              <p id="braceletText">D1: light 0.15-second pulse every 2 seconds.</p>
+            </div>
+          </article>
+          <article class="feedback-unit priority-card">
+            <span class="unit-icon">!</span>
+            <div>
+              <h2>Plan priority</h2>
+              <p id="priorityText">Informational</p>
+            </div>
+          </article>
+        </section>
+      </section>
+
+      <aside class="research-panel" aria-label="coordination and validation details">
+        <section class="panel-block">
+          <div class="section-title">
+            <p class="eyebrow">Agent Orchestration</p>
+            <h2>Task specialists</h2>
+          </div>
+          <div class="agent-list" id="agentList"></div>
+        </section>
+
+        <section class="panel-block">
+          <div class="section-title">
+            <p class="eyebrow">Generated plan</p>
+            <h2>Feedback channels</h2>
+          </div>
+          <dl class="channel-states">
+            <div><dt>Speech</dt><dd id="speechState">Example action guidance</dd></div>
+            <div><dt>Wrist cue</dt><dd id="wristState">D1</dd></div>
+            <div><dt>Scene description</dt><dd id="descriptionState">Optional context available</dd></div>
+          </dl>
+          <p class="insight-text">
+            This page displays planned outputs without connecting to a wristband. D1-D4 encode approach distance and W1-W3 encode warning actions. These states do not measure cognitive load or physical motor response.
+          </p>
+        </section>
+
+        <section class="panel-block compact">
+          <h2>Mechanism and validation</h2>
+          <ul>
+            <li>The paper's EPMC policy selects W3 for a supervisory stop and otherwise uses cue priority. See the <a href="libereye/epmc.py">policy implementation</a>.</li>
+            <li>Urgent cues or danger suppress optional scene descriptions. See the <a href="tests/test_epmc.py">coordination tests</a>.</li>
+            <li>This page uses the legacy coordinator. Scenario buttons replay <a href="libereye/scenarios.py">synthetic inputs</a>; uploads use the configured perception pipeline.</li>
+          </ul>
+          <p class="insight-text">See the <a href="README.md#paper-and-validation">manuscript reference and validation instructions</a>.</p>
+        </section>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

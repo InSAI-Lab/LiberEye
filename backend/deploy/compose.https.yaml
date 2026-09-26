@@ -1,0 +1,25 @@
+services:
+  caddy:
+    image: caddy:2.10.2-alpine
+    environment:
+      LIBEREYE_DOMAIN: ${LIBEREYE_DOMAIN:?Set your DNS hostname in .env}
+      ACME_EMAIL: ${ACME_EMAIL:?Set your certificate contact email in .env}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: '10m'
+        max-file: '3'
+volumes:
+  caddy_data:
+  caddy_config:

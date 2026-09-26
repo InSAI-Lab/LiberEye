@@ -1,0 +1,3 @@
+# pyproject.toml is the only dependency definition.
+# Docker uses constraints.txt for the verified CPU runtime.
+.

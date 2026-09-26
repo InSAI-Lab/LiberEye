@@ -1,0 +1,8 @@
+{
+  "priority": "info",
+  "vision_backend": "heuristic",
+  "should_speak": true,
+  "bracelet_required": true,
+  "bracelet_pattern": "D1",
+  "limitation": "The heuristic extractor does not recognize the synthetic blocked tactile paving. This fixture validates transport only, not hazard detection accuracy."
+}

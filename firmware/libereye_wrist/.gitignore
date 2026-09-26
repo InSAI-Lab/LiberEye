@@ -1,0 +1,7 @@
+.tools/
+build/
+*.uf2
+*.hex
+*.zip
+*.elf
+*.bin

@@ -1,0 +1,10 @@
+services:
+  api:
+    build:
+      args:
+        INSTALL_VISION: '1'
+    gpus: all
+    read_only: false
+    environment:
+      LIBEREYE_ENABLE_STRONG_VISION: '1'
+      LIBEREYE_REQUIRE_MODELS: '1'

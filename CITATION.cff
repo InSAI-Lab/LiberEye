@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use LiberEye, cite the associated manuscript."
+type: software
+title: "LiberEye: Event-Priority Coordination of Speech and Wrist Haptics for Assistive Navigation"
+version: 0.2.0
+authors:
+  - family-names: Li
+    given-names: Shicheng
+  - family-names: Zhang
+    given-names: Jiuhan
+  - family-names: Yang
+    given-names: Fengjiao
+  - family-names: Zhang
+    given-names: Jiaming
+repository-code: "https://github.com/InSAI-Lab/LiberEye"

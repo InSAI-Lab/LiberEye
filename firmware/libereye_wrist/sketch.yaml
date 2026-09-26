@@ -1,0 +1,9 @@
+profiles:
+  feather52840:
+    fqbn: adafruit:nrf52:feather52840
+    platforms:
+      - platform: adafruit:nrf52 (1.7.0)
+        platform_index_url: https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+    libraries:
+      - Adafruit BusIO (1.17.2)
+      - Adafruit DRV2605 Library (1.2.4)

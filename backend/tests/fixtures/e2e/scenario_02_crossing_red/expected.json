@@ -1,0 +1,7 @@
+{
+  "priority": "danger",
+  "vision_backend": "heuristic",
+  "should_speak": true,
+  "bracelet_required": true,
+  "bracelet_pattern": "W3"
+}

@@ -1,0 +1,9 @@
+# Local credentials, developer state and build output
+.local/
+*.local.xcconfig
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+.DS_Store
+Sources/HeyCyanSDK/

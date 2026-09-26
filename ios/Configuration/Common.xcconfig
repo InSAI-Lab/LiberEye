@@ -1,0 +1,9 @@
+// Replace signing values in .local/Signing.xcconfig before installing on a device.
+LIBEREYE_BUNDLE_ID = org.example.libereye
+LIBEREYE_GLASSES_BUNDLE_ID = org.example.libereye.glasses
+DEVELOPMENT_TEAM =
+CODE_SIGN_STYLE = Automatic
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 1
+
+#include? "../.local/Signing.xcconfig"

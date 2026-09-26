@@ -1,0 +1,6 @@
+{
+  "priority": "info",
+  "vision_backend": "heuristic",
+  "should_speak": true,
+  "bracelet_required": false
+}

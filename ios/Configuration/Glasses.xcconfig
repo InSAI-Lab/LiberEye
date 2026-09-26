@@ -1,0 +1,4 @@
+#include "Common.xcconfig"
+
+PRODUCT_BUNDLE_IDENTIFIER = $(LIBEREYE_GLASSES_BUNDLE_ID)
+LIBEREYE_DISPLAY_NAME = LiberEye Glasses

@@ -1,0 +1,12 @@
+*
+!Dockerfile
+!pyproject.toml
+!requirements.txt
+!constraints.txt
+!README.md
+!libereye/
+!libereye/**
+!scripts/
+!scripts/run_cloud.py
+**/__pycache__
+**/*.pyc
