@@ -74,6 +74,8 @@ The phone should explicitly send STOP when monitoring ends, a cloud request beco
 
 Use Arduino CLI 1.3.1 with pinned Adafruit nRF52 BSP 1.7.0, Adafruit DRV2605 Library 1.2.4, and Adafruit BusIO 1.17.2. The BSP supplies Bluefruit. `sketch.yaml` also records the reference build profile.
 
+On Linux, install Python 3 with `venv` support (`sudo apt-get install python3-venv` on Debian or Ubuntu). The dependency script installs [Adafruit nRFutil](https://github.com/adafruit/Adafruit_nRF52_nrfutil) 0.5.3.post16 into `.tools/nrfutil`, and the Arduino wrapper adds it to `PATH` for DFU package generation and serial flashing. CI uses Python 3.11. macOS and Windows use the nRFutil executable bundled with the BSP.
+
 Install the CLI using the [Arduino installation guide](https://arduino.github.io/arduino-cli/1.3/installation/), then run from this directory:
 
 ```sh

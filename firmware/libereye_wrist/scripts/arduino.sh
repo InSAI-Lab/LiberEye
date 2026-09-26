@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
 set -eu
 firmware_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+if [ -d "$firmware_dir/.tools/nrfutil/bin" ]; then
+  export PATH="$firmware_dir/.tools/nrfutil/bin:$PATH"
+fi
 export ARDUINO_DIRECTORIES_DATA="${ARDUINO_DIRECTORIES_DATA:-$firmware_dir/.tools/data}"
 export ARDUINO_DIRECTORIES_DOWNLOADS="${ARDUINO_DIRECTORIES_DOWNLOADS:-$firmware_dir/.tools/downloads}"
 export ARDUINO_DIRECTORIES_USER="${ARDUINO_DIRECTORIES_USER:-$firmware_dir/.tools/user}"
