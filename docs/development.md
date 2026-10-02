@@ -1,5 +1,17 @@
 # Development
 
+## Run CI on the latest code
+
+Open [Source validation in GitHub Actions](https://github.com/InSAI-Lab/LiberEye/actions/workflows/ci.yml), click **Run workflow**, select **main**, and click **Run workflow** again. This creates a new run for the latest commit on `main` at the time it is triggered. Pushes and pull requests also trigger validation automatically.
+
+To start the same check from GitHub CLI:
+
+```bash
+gh workflow run ci.yml --repo InSAI-Lab/LiberEye --ref main
+```
+
+**Re-run jobs** repeats the original run's commit. To check newer code, start a new run with **Run workflow**.
+
 ## Python backend
 
 Use Python 3.11 or 3.12 and install the development dependencies from [the backend](../backend/):
