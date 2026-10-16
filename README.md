@@ -42,6 +42,12 @@ Common task means and standard deviations for four participants are shown below.
 
 Speech suppression and haptic preemption counts summarize EPMC decisions in the assistance plan.
 
+## Components
+
+- [Backend](backend/README.md): perception, EPMC, authenticated HTTP API and deployment configuration.
+- [iOS app](ios/README.md): phone camera, cloud relay, wrist control and optional licensed glasses integration.
+- [Wrist firmware](firmware/libereye_wrist/README.md): nRF52840 and DRV2605L reference implementation, wiring and flashing instructions.
+
 ## Getting started
 
 The repository contains the [backend](backend/README.md), [iOS app](ios/README.md), and [wrist firmware](firmware/libereye_wrist/README.md). To run the backend locally, use Python 3.11 or 3.12.
