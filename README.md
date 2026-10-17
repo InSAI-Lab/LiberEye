@@ -1,6 +1,8 @@
 # LiberEye
 
-**[Project Page Preview](https://insailab.org/workspace/preview/61b519ba-d7f2-43ef-9a66-30f347680441)**
+*ICASSP 2027 manuscript*
+
+**[Project Page Preview](https://insailab.org/workspace/preview/8c80c46a-8367-4601-a607-c250cddaaf1e)**
 
 LiberEye coordinates speech and wrist haptics for assistive navigation. A phone relays camera or glasses frames to a perception backend, then delivers the speech and Bluetooth wrist cues selected by Event-Priority Multimodal Coordination (EPMC).
 
